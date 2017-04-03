@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'campus',
     'student',
     'location',
+    'blog',
 ]
 
 MIDDLEWARE = [

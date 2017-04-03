@@ -2,6 +2,23 @@
 
 {% block content %}
 
+{% for post in posts %}
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>{{ post.author.studentprofile.name }}  <small> একটি {{ post.category }} লিখেছে</small> </h4>
+                    <p><b>{{ post.author.studentprofile.campus }}</b></p>
+                    <p>{{ user.campus }}</p>
+                </div>
+                <div class="panel-body">
+                    <p>{{ post.description }}</p>
+                </div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+    </div>
 
+{% endfor %}
 
 {% endblock %}
