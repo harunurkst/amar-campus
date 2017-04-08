@@ -9,6 +9,7 @@ class CampusInfo(models.Model):
     def __str__(self):
         return self.name
 
+
 class Department(models.Model):
     name = models.CharField(max_length=150)
     sort_name = models.CharField(max_length=25)

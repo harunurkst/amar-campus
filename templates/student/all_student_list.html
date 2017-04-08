@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>ক্যাম্পাসের ভাই ব্যারাদারগন</h2>
+  <div class="row">
+    {% for student in students %}
+        <div class="col-xs-2">
+          <div class="panel panel-default">
+              <div class="panel-body">
+                  <i class="fa fa-user fa-5x" aria-hidden="true"></i>
+              </div>
+              <div class="panel-footer">
+                  <p>{{ student }}</p>
+                  <p>{{ student.department}}-{{ student.batch }}</p>
+                  <p> </p>
+              </div>
+          </div>
+      </div>
+
+
+    {% endfor %}
+</div>
+{% endblock %}
