@@ -14,10 +14,19 @@ class Post(models.Model):
     description = models.TextField()
     category = models.ForeignKey(Category)
     author = models.ForeignKey(User)
+    likes = models.ManyToManyField(User, related_name='likes')
 
     def get_author_campus_name(self):
         campus_name=StudentProfile.objects.get(user=self.author).campus.name
         return campus_name
+
+    @property
+    def total_likes(self):
+        '''
+        likes for blog post
+        :return:Integer: total like count
+        '''
+        return self.likes.count()
 
     def __str__(self):
         return str(self.pk)

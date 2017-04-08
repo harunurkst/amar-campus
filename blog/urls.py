@@ -4,6 +4,7 @@ from . import views
 app_name='blog'
 urlpatterns = [
     url(r'^(?P<id>[0-9]+)/$', views.category_post, name='category-post'),
+    url(r'^like/$', views.like, name='like'),
 
 
 ]

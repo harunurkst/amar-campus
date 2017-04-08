@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from blog.models import Post
 
 def category_post(request, id):
@@ -7,3 +8,7 @@ def category_post(request, id):
         'posts':posts
     }
     return render(request, 'blog/category_post.html')
+
+
+def like(request):
+    return HttpResponse('OK')
