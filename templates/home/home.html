@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+{% load isliked %}
 
 {% block content %}
 
@@ -14,15 +16,21 @@
                 <div class="panel-body">
                     <p>{{ post.description }}</p>
                 </div>
-                <div class="panel-footer">
-                    <a class="" href="#">
-                        <i class="fa fa-thumbs-o-up"></i>
-                    </a>
+                <div class="panel-footer" onload="likeIconChange({{post.pk}})">
+
+                    <button type="button" onclick="likesCalculator({{ post.pk }})" >
+                        <i id="icon_{{ post.pk }}"class="fa fa-thumbs-o-up {% if {{post.pk|is_liked user}} %} style="color:'blue' "></i>
+                    </button>
+                    <span class="badge" id="id_{{ post.pk }}">{{ post.total_likes }}</span>
                 </div>
             </div>
         </div>
+
     </div>
 
 {% endfor %}
 
+{% endblock %}
+{% block extrajs %}
+    <script src="{% static 'js/custom/likes.js' %}"></script>
 {% endblock %}
